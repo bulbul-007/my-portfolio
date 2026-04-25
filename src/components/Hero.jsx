@@ -53,7 +53,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
               </a>
 
-              <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2">
+              <a href="/cv.pdf" download="Bulbul_Ahmed_CV.pdf" className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-lg hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2">
                 <span>Download CV</span>
                 <Download className="w-5 h-5" />
               </a>
