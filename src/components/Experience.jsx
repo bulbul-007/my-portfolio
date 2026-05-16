@@ -1,12 +1,26 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award } from 'lucide-react';
+import { GraduationCap, Award, Calendar } from 'lucide-react';
 
 const educationData = [
   {
     type: 'education',
-    title: 'Bachelor of Science in Computer Science & Engineering (CSE)',
-    organization: 'Bangladesh University of Business and Technology - BUBT',
+    title: 'B.Sc. in Computer Science and Engineering',
+    organization: 'Bangladesh University of Business & Technology (BUBT)',
     date: 'Jan 2022 - Dec 2025',
+    description: '',
+  },
+  {
+    type: 'education',
+    title: 'HSC - Science (GPA: 5.00)',
+    organization: 'Police Lines School & College, Bogura',
+    date: '2020',
+    description: '',
+  },
+  {
+    type: 'education',
+    title: 'SSC - Science (GPA: 4.89)',
+    organization: 'Unukhan Paglapir High School, Sirajganj',
+    date: '2018',
     description: '',
   },
   {
@@ -14,13 +28,19 @@ const educationData = [
     title: 'Certificate of Completion',
     organization: 'Academy of Bachelor of Science in Computer Science & Engineering (CSE)',
     date: '',
-    description: 'I hereby declare that the information provided above is true and correct to the best of my knowledge.',
+    description: '',
   }
 ];
 
 const Experience = () => {
   return (
     <section id="experience" className="py-24 relative overflow-hidden bg-slate-900/50">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+        <div className="absolute top-[20%] left-[-10%] w-96 h-96 bg-primary-500/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-[-10%] right-[-5%] w-80 h-80 bg-secondary-500/10 rounded-full blur-[100px]"></div>
+      </div>
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         
         <motion.div 
@@ -28,7 +48,7 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-4">
             Education & <span className="text-gradient">Certifications</span>
@@ -36,53 +56,59 @@ const Experience = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto relative">
-          {/* Vertical Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-secondary-500 to-accent-500 transform md:-translate-x-1/2 rounded-full opacity-30"></div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {educationData.map((item, index) => (
-            <div key={index} className="relative mb-12 md:mb-20">
-              
-              {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full glass flex items-center justify-center border-2 border-primary-500 z-10 shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-                {item.type === 'education' ? (
-                  <GraduationCap size={18} className="text-primary-400" />
-                ) : (
-                  <Award size={18} className="text-secondary-400" />
-                )}
-              </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="group relative"
+            >
+              {/* Card Glow Effect on Hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${item.type === 'education' ? 'from-primary-500/40 to-accent-500/0' : 'from-secondary-500/40 to-primary-500/0'} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}></div>
 
-              {/* Content Card */}
-              <div className={`flex flex-col md:flex-row items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="w-full md:w-1/2 pl-12 md:pl-0">
-                  <motion.div 
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className={`glass-card p-6 md:p-8 relative ${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}
-                  >
-                    <div className="absolute top-1/2 transform -translate-y-1/2 w-4 h-4 rotate-45 bg-slate-800 border-t border-l border-white/10 hidden md:block
-                      ${index % 2 === 0 ? '-left-2 border-r-0 border-b-0' : '-right-2 border-l-0 border-t-0 border-r border-b'}
-                    "></div>
-                    
-                    {item.date && (
-                      <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-primary-400 text-xs font-semibold tracking-wider mb-4">
-                        {item.date}
-                      </span>
-                    )}
-                    <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
-                    <h4 className="text-slate-400 text-sm font-medium mb-4">{item.organization}</h4>
-                    {item.description && (
-                      <p className="text-slate-300 text-sm leading-relaxed italic border-t border-white/10 pt-4 mt-2">
-                        {item.description}
-                      </p>
-                    )}
-                  </motion.div>
+              <div className="glass-card h-full p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 relative overflow-hidden bg-slate-800/80">
+                {/* Background Accent */}
+                <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full blur-[50px] opacity-20 group-hover:opacity-40 transition-opacity duration-500 ${item.type === 'education' ? 'bg-primary-500' : 'bg-secondary-500'}`}></div>
+
+                <div className="flex justify-between items-start mb-6">
+                  {item.date ? (
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 w-fit group-hover:border-primary-500/30 transition-colors">
+                      <Calendar size={14} className="text-primary-400" />
+                      <span className="text-primary-300 text-xs font-semibold tracking-wider">{item.date}</span>
+                    </div>
+                  ) : (
+                     <div className="px-4 py-2 rounded-full bg-white/5 border border-white/10 w-fit">
+                        <span className="text-secondary-300 text-xs font-semibold tracking-wider">Certified</span>
+                     </div>
+                  )}
+
+                  <div className={`p-3 rounded-xl border border-white/10 shadow-lg ${item.type === 'education' ? 'bg-primary-500/20 text-primary-300' : 'bg-secondary-500/20 text-secondary-300'}`}>
+                    {item.type === 'education' ? <GraduationCap size={24} /> : <Award size={24} />}
+                  </div>
                 </div>
+
+                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-all duration-300">
+                  {item.title}
+                </h3>
+                
+                <h4 className="text-slate-400 text-base font-medium flex items-center gap-2">
+                  {item.organization}
+                </h4>
+
+                {item.description && (
+                  <p className="text-slate-300 text-sm leading-relaxed mt-4 pt-4 border-t border-white/10 relative">
+                    {item.description}
+                  </p>
+                )}
+
+                {/* Decorative Bottom Line */}
+                <div className={`absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r ${item.type === 'education' ? 'from-primary-500 to-accent-500' : 'from-secondary-500 to-primary-500'}`}></div>
               </div>
-              
-            </div>
+            </motion.div>
           ))}
         </div>
 

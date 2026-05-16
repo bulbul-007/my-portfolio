@@ -61,7 +61,7 @@ const About = () => {
               Summary
             </h3>
             <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-              Computer Science and Engineering student with strong interest in web development and hands-on experience in JavaScript, React, and Next.js fundamentals. Skilled in building responsive web applications, working with APIs, Git, and databases, with a passion for learning modern technologies and contributing to real-world projects.
+              Computer Science and Engineering graduate with hands-on experience building full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Next.js. Proficient in TypeScript, REST API development, Git-based collaborative workflows, and AI-assisted development tools. Passionate about modern web technologies and delivering scalable, production-grade solutions.
             </p>
             
             <h4 className="text-xl font-semibold text-white mb-4">Interests & Focus Areas</h4>
