@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Target, Code2, Sparkles, BookOpen, Layers } from 'lucide-react';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/profile-about.png';
 
 const interests = [
   { text: "Software development and application design", icon: <Layers size={18} /> },
@@ -14,8 +14,8 @@ const About = () => {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -29,9 +29,9 @@ const About = () => {
         </motion.div>
 
         <div className="flex flex-col md:flex-row items-center gap-12">
-          
+
           {/* Image/Avatar */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -42,7 +42,7 @@ const About = () => {
               {/* Decorative blobs */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-secondary-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-50 blur-lg"></div>
               <div className="absolute inset-0 bg-gradient-to-bl from-accent-500 to-primary-500 rounded-2xl -rotate-6 group-hover:-rotate-12 transition-transform duration-500 opacity-50 blur-lg"></div>
-              
+
               <div className="relative glass-card w-full h-full rounded-2xl overflow-hidden border-2 border-white/10 z-10 flex items-center justify-center bg-slate-800">
                 <img src={profileImg} alt="Bulbul Ahmed Profile" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
@@ -50,7 +50,7 @@ const About = () => {
           </motion.div>
 
           {/* Text Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -63,7 +63,7 @@ const About = () => {
             <p className="text-slate-300 text-lg mb-8 leading-relaxed">
               Computer Science and Engineering graduate with hands-on experience building full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js) and Next.js. Proficient in TypeScript, REST API development, Git-based collaborative workflows, and AI-assisted development tools. Passionate about modern web technologies and delivering scalable, production-grade solutions.
             </p>
-            
+
             <h4 className="text-xl font-semibold text-white mb-4">Interests & Focus Areas</h4>
             <div className="grid grid-cols-1 gap-4">
               {interests.map((interest, idx) => (
